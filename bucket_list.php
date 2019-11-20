@@ -1,28 +1,23 @@
 <?php 
 
+$vrienden = readline("wees eerlijk je hebt geen vrienden");
 
-
-$count = readline("welk getal wil je");
-
-if (is_numeric($count)) {
+if (is_numeric($vrienden)) {
 	echo " ";
-}
-else{
-	exit("je zuigt");
-}
-
+}else exit("je zuigt"); 
 
 $arraytest = array();
 
-for ($i=0; $i < $count; $i++) { 
-	echo('moet je?' . PHP_EOL);
-	$anwer = readline();
-	array_push($arraytest, $anwer);
+for ($i=0; $i < $vrienden ; $i++) { 
+	$naam = readline("noem een naam" . PHP_EOL);
+    $droom = readline("noem een random droom" . PHP_EOL);
+    array_push($arraytest, array(
+    	"naam" => $naam,
+    	"droom" => $droom
+    ));
 }
 
-
-for ($i=0; $i < count($arraytest); $i++) { 
-	echo($arraytest[$i] . PHP_EOL);
-}
-
+foreach ($arraytest as $vriend) {
+	echo($vriend['naam'] . ' ' . $vriend['droom']);
+};
  ?>
